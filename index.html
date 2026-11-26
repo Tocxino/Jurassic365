@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jurassic 365</title>
+  <link rel="icon" href="img/silueta-trex.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+
+  <!-- ============ LOGIN ============ -->
+  <section id="vista-login" class="vista">
+    <div class="login-caja">
+      <img src="img/silueta-trex.svg" alt="" class="login-trex">
+      <h1 class="logo">JURASSIC <span>365</span></h1>
+      <p class="login-texto">Un dinosaurio nuevo cada día.<br>Entra con tu cuenta de Google para calificar.</p>
+      <div id="boton-google"></div>
+      <p id="login-error" class="error"></p>
+    </div>
+  </section>
+
+  <!-- ============ APP ============ -->
+  <section id="vista-app" class="vista oculto">
+    <header class="barra">
+      <div class="logo logo-chico">JURASSIC <span>365</span></div>
+      <nav class="tabs">
+        <button class="tab activo" data-tab="galeria">Galería</button>
+        <button class="tab" data-tab="ranking">Ranking</button>
+      </nav>
+      <div class="usuario">
+        <span id="nombre-usuario"></span>
+        <button id="btn-salir" class="btn-link">Salir</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- Galería -->
+      <div id="tab-galeria" class="tab-contenido">
+        <div class="contador">
+          <div>
+            <div class="contador-dia">Día <strong id="dia-actual">–</strong> de 365</div>
+            <div class="contador-sig">Siguiente dino en <strong id="cuenta-regresiva">--:--:--</strong></div>
+          </div>
+          <div class="filtros">
+            <button class="filtro activo" data-filtro="todos">Todos</button>
+            <button class="filtro" data-filtro="desbloqueados">Desbloqueados</button>
+            <button class="filtro" data-filtro="pendientes">Me falta calificar <span id="n-pendientes" class="pildora">0</span></button>
+          </div>
+        </div>
+
+        <div id="hoy"></div>
+        <h2 class="seccion">Todos los días</h2>
+        <div id="galeria" class="galeria"></div>
+      </div>
+
+      <!-- Ranking -->
+      <div id="tab-ranking" class="tab-contenido oculto">
+        <div class="ranking-cabecera">
+          <h2 class="seccion">Ranking</h2>
+          <div class="filtros">
+            <button class="cat activo" data-cat="final">General</button>
+            <button class="cat" data-cat="peligrosidad">Peligrosidad</button>
+            <button class="cat" data-cat="diseno">Diseño</button>
+            <button class="cat" data-cat="nombre">Nombre</button>
+          </div>
+        </div>
+        <ol id="ranking" class="ranking"></ol>
+      </div>
+    </main>
+  </section>
+
+  <!-- ============ MODAL DETALLE ============ -->
+  <div id="modal" class="modal oculto" role="dialog" aria-modal="true">
+    <div class="modal-caja">
+      <button class="modal-cerrar" aria-label="Cerrar">&times;</button>
+      <div id="modal-contenido"></div>
+    </div>
+  </div>
+
+  <div id="cargando" class="cargando oculto"><div class="huevo"></div></div>
+  <div id="aviso" class="aviso oculto"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
