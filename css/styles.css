@@ -256,3 +256,14 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
 /* Dinos sin imagen: silueta gris centrada */
 .hoy-img img[src$="silueta-trex.svg"],
 .detalle-img img[src$="silueta-trex.svg"] { object-fit: contain; padding: 30px; opacity: .55; }
+
+/* Wikipedia */
+.wiki-link { color: var(--ambar); font-weight: 500; text-decoration: none; font-size: .92rem; }
+.wiki-link:hover { text-decoration: underline; }
+.info-wiki {
+  margin-top: 20px; background: var(--tarjeta); border: 1px solid var(--borde);
+  border-radius: var(--radio); padding: 4px 18px;
+}
+.info-wiki summary { cursor: pointer; font-weight: 700; padding: 10px 0; color: var(--ambar); }
+.info-wiki p { color: var(--texto); margin: 0 0 10px; }
+.info-wiki small { display: block; color: var(--suave); padding-bottom: 12px; }
