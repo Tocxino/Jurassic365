@@ -140,6 +140,7 @@ function pintarHoy() {
           <span>${esc(d.dieta)}</span><span>${esc(d.tamano)}</span><span>${esc(d.region)}</span>
         </div>
         <p>${esc(d.descripcion)}</p>
+        ${d.wikiUrl ? `<a class="wiki-link" href="${esc(d.wikiUrl)}" target="_blank" rel="noopener">Ver en Wikipedia ↗</a>` : ''}
         <div class="hoy-acciones">
           ${d.resumen
             ? `<div class="nota-grande">${num(d.resumen.final)}<small>provisional · ${d.resumen.nVotos} voto(s)</small></div>`
@@ -261,8 +262,15 @@ function abrirDetalle(dia) {
           <span>${esc(d.dieta)}</span><span>${esc(d.tamano)}</span><span>${esc(d.region)}</span>
         </div>
         <p>${esc(d.descripcion)}</p>
+        ${d.wikiUrl ? `<a class="wiki-link" href="${esc(d.wikiUrl)}" target="_blank" rel="noopener">Ver en Wikipedia ↗</a>` : ''}
       </div>
     </div>
+    ${d.info ? `
+      <details class="info-wiki">
+        <summary>Más información</summary>
+        ${d.info.split('\n').map(p => `<p>${esc(p)}</p>`).join('')}
+        <small>Fuente: Wikipedia, texto bajo licencia CC BY-SA.</small>
+      </details>` : ''}
     ${resumen}
     ${votos}
     ${formulario}`;
